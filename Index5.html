@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Yannie ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header, section, footer {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    header {
+      padding: 70px 20px;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .hidden-message {
+      display: none;
+      margin-top: 20px;
+      font-style: italic;
+      color: #ffdede;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .countdown {
+      padding: 60px 20px;
+      background: rgba(255,255,255,0.05);
+      margin-top: 40px;
+      border-radius: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      padding: 40px 20px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 onclick="revealMessage()">For Yannie 💖</h1>
+  <p>
+    Even with miles between us, you remain my constant.
+    This small space is my quiet way of holding you close.
+I want to fill this site in the future with our memories.
+This will serve as our digital photo album.
+  </p>
+
+  <div class="hidden-message" id="secret">
+    You didn’t know this was here…  
+   but every version of my future still has you in it.
+Let me love you with all the love I’ve got.
+  </div>
+</header>
+
+<section class="gallery">
+  <img src="https://i.imgur.com/Yql7m23.jpeg" alt="Yannie">
+  <img src="https://i.imgur.com/MuvDFvP.jpeg" alt="Yannie">
+  <img src="https://i.imgur.com/05JM7Iy.jpg" alt="Yannie">
+ <img src="https://i.imgur.com/RKm0t0T.jpeg" alt="Yannie">
+</section>
+
+<section class="countdown">
+  <h2>Open When…</h2>
+  <p id="timer">Counting the days quietly.</p>
+</section>
+
+<footer>
+  Made with love, patience, and distance.  
+  From someone far away, always choosing you no matter what.
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const elements = document.querySelectorAll("header, section, footer");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+
+  // Hidden message
+  function revealMessage() {
+    document.getElementById("secret").style.display = "block";
+  }
+
+  // Countdown (change the date if you want)
+  const targetDate = new Date("2027-02-14");
+  const timer = document.getElementById("timer");
+
+  setInterval(() => {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      timer.innerText = "The wait is over ❤️";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    timer.innerText = `${days} days until next Valentines.`;
+  }, 1000);
+</script>
+
+</body>
+</html>
